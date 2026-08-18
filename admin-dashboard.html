@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Specialty Care Hospital - Admin Dashboard</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f0f6f9;
+      color: #1a1a1a;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: #ffffff;
+      box-shadow: 0 4px 20px rgba(0, 40, 80, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      border-bottom: 3px solid #0055a4;
+    }
+
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo-area img {
+      height: 50px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: none;
+      padding: 8px 18px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #4a5a6a;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: all 0.3s;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+
+    .nav-btn i {
+      margin-right: 8px;
+      color: #0055a4;
+    }
+
+    .nav-btn:hover {
+      background: rgba(0, 85, 164, 0.08);
+      color: #0055a4;
+      transform: translateY(-2px);
+    }
+
+    .nav-btn.active {
+      background: #0055a4;
+      color: white;
+      box-shadow: 0 4px 15px rgba(0, 85, 164, 0.3);
+    }
+
+    .nav-btn.active i {
+      color: white;
+    }
+
+    .role-badge {
+      background: #0055a4;
+      color: white;
+      padding: 4px 14px;
+      border-radius: 30px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .right-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .back-home-btn, .logout-btn {
+      background: transparent;
+      border: 2px solid #0055a4;
+      padding: 6px 18px;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: 600;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: inherit;
+    }
+
+    .back-home-btn {
+      background: white;
+      color: #0055a4;
+    }
+
+    .back-home-btn:hover {
+      background: #0055a4;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 85, 164, 0.25);
+    }
+
+    .logout-btn {
+      background: #0055a4;
+      color: white;
+      border-color: #0055a4;
+      box-shadow: 0 4px 15px rgba(0, 85, 164, 0.2);
+    }
+
+    .logout-btn:hover {
+      background: #003d7a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 85, 164, 0.3);
+    }
+
+    /* ===== MAIN CONTAINER ===== */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 28px 24px;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    .dashboard-title {
+      margin-bottom: 24px;
+      border-left: 5px solid #0055a4;
+      padding-left: 20px;
+    }
+
+    .dashboard-title h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0a1a2e;
+    }
+
+    .dashboard-title h1 span {
+      color: #0055a4;
+    }
+
+    .dashboard-title p {
+      color: #4a5a6a;
+      margin-top: 6px;
+      font-size: 14px;
+    }
+
+    .welcome-section {
+      background: linear-gradient(135deg, rgba(0, 85, 164, 0.06), rgba(0, 85, 164, 0.02));
+      border-radius: 20px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+      border: 1px solid rgba(0, 85, 164, 0.1);
+    }
+
+    .welcome-section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0a1a2e;
+    }
+
+    .welcome-section h2 span {
+      color: #0055a4;
+    }
+
+    .welcome-section p {
+      color: #4a5a6a;
+      margin-top: 6px;
+      font-size: 14px;
+    }
+
+    /* ===== STATS ===== */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 20px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 4px 12px rgba(0, 40, 80, 0.04);
+      border: 1px solid rgba(0, 85, 164, 0.08);
+      transition: all 0.3s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 85, 164, 0.12);
+      border-color: #0055a4;
+    }
+
+    .stat-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, rgba(0, 85, 164, 0.12), rgba(0, 85, 164, 0.04));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: #0055a4;
+    }
+
+    .stat-content h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #0055a4;
+    }
+
+    .stat-content p {
+      color: #4a5a6a;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    /* ===== QUICK STATS ===== */
+    .quick-stats-bar {
+      background: white;
+      border-radius: 60px;
+      padding: 14px 28px;
+      margin-bottom: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      border: 1px solid rgba(0, 85, 164, 0.08);
+    }
+
+    .quick-stat-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .quick-stat-label {
+      color: #4a5a6a;
+      font-size: 0.8rem;
+    }
+
+    .quick-stat-value {
+      font-weight: 700;
+      background: rgba(0, 85, 164, 0.08);
+      padding: 4px 14px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #0055a4;
+    }
+
+    /* ===== CHARTS ===== */
+    .charts-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .chart-card {
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      border: 1px solid rgba(0, 85, 164, 0.08);
+      box-shadow: 0 4px 12px rgba(0, 40, 80, 0.03);
+      width: 100%;
+    }
+
+    .chart-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      color: #0a1a2e;
+    }
+
+    .chart-card h3 i {
+      color: #0055a4;
+    }
+
+    .chart-container {
+      position: relative;
+      width: 100%;
+      height: auto;
+      min-height: 180px;
+    }
+
+    canvas {
+      max-width: 100%;
+      height: auto !important;
+      width: 100% !important;
+    }
+
+    /* ===== DASHBOARD GRID ===== */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .section-header h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0a1a2e;
+    }
+
+    .section-header a {
+      color: #0055a4;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .section-header a:hover {
+      color: #003d7a;
+    }
+
+    /* ===== USER CARDS ===== */
+    .user-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .user-item {
+      background: white;
+      border-radius: 16px;
+      padding: 14px 18px;
+      border: 1px solid rgba(0, 85, 164, 0.08);
+      transition: all 0.2s;
+    }
+
+    .user-item:hover {
+      border-color: #0055a4;
+      box-shadow: 0 4px 15px rgba(0, 85, 164, 0.08);
+    }
+
+    .user-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .user-id {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #0a1a2e;
+    }
+
+    .user-badge {
+      background: rgba(0, 85, 164, 0.1);
+      padding: 2px 12px;
+      border-radius: 20px;
+      font-size: 0.65rem;
+      color: #0055a4;
+      font-weight: 600;
+    }
+
+    .user-desc {
+      font-size: 0.85rem;
+      color: #4a5a6a;
+      margin-bottom: 8px;
+    }
+
+    .user-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .user-info {
+      font-size: 0.75rem;
+      color: #4a5a6a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .user-info i {
+      color: #0055a4;
+    }
+
+    .status-badge {
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: 0.65rem;
+      font-weight: 600;
+    }
+
+    .status-active { background: #e8f5e9; color: #2e7d32; }
+    .status-inactive { background: #fce4ec; color: #c62828; }
+    .status-pending { background: #fff3e0; color: #f57c00; }
+    .status-verified { background: #e3f2fd; color: #0055a4; }
+    .status-admitted { background: #e8f5e9; color: #2e7d32; }
+    .status-discharged { background: #fce4ec; color: #c62828; }
+
+    /* ===== RIGHT COLUMN ===== */
+    .right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 16px;
+      padding: 18px 20px;
+      border: 1px solid rgba(0, 85, 164, 0.08);
+    }
+
+    .info-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #0a1a2e;
+    }
+
+    .info-card h3 i {
+      color: #0055a4;
+    }
+
+    .staff-list {
+      list-style: none;
+    }
+
+    .staff-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0, 85, 164, 0.06);
+    }
+
+    .staff-item:last-child {
+      border-bottom: none;
+    }
+
+    .staff-name {
+      font-weight: 500;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .staff-name .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .staff-name .status-dot.online { background: #2e7d32; }
+    .staff-name .status-dot.away { background: #f57c00; }
+    .staff-name .status-dot.offline { background: #c62828; }
+
+    .staff-role {
+      font-size: 0.65rem;
+      color: #4a5a6a;
+    }
+
+    .alert-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0, 85, 164, 0.06);
+    }
+
+    .alert-item:last-child {
+      border-bottom: none;
+    }
+
+    .alert-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+
+    .alert-icon.urgent { background: #fce4ec; color: #c62828; }
+    .alert-icon.info { background: #e3f2fd; color: #0055a4; }
+    .alert-icon.success { background: #e8f5e9; color: #2e7d32; }
+
+    .alert-text {
+      font-size: 0.8rem;
+      color: #0a1a2e;
+    }
+
+    .alert-text .highlight {
+      color: #0055a4;
+      font-weight: 600;
+    }
+
+    .alert-time {
+      font-size: 0.6rem;
+      color: #94a3b8;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .action-btn {
+      background: #f0f6f9;
+      border: 1px solid rgba(0, 85, 164, 0.08);
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      color: #0a1a2e;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .action-btn i {
+      color: #0055a4;
+    }
+
+    .action-btn:hover {
+      background: #0055a4;
+      color: white;
+      border-color: #0055a4;
+      transform: translateY(-2px);
+    }
+
+    .action-btn:hover i {
+      color: white;
+    }
+
+    /* ===== CONTENT SECTIONS ===== */
+    .content-section {
+      display: block;
+    }
+
+    .content-section.hidden {
+      display: none;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .enhanced-card {
+      background: linear-gradient(135deg, rgba(0, 85, 164, 0.04), #ffffff);
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid rgba(0, 85, 164, 0.08);
+    }
+
+    .enhanced-card h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: #0a1a2e;
+    }
+
+    .enhanced-card p {
+      color: #4a5a6a;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+
+    .enhanced-card .highlight {
+      color: #0055a4;
+      font-weight: 700;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: #f0f0f0;
+      border-radius: 10px;
+      margin: 6px 0;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #0055a4, #0088cc);
+      border-radius: 10px;
+    }
+
+    /* ===== RESPONSIVE USER TABLE ===== */
+    .user-table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -4px;
+    }
+
+    .user-table {
+      width: 100%;
+      min-width: 600px;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .user-table th {
+      text-align: left;
+      padding: 10px 12px;
+      color: #4a5a6a;
+      font-weight: 600;
+      border-bottom: 2px solid rgba(0, 85, 164, 0.1);
+      white-space: nowrap;
+    }
+
+    .user-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(0, 85, 164, 0.06);
+    }
+
+    .user-table tr:hover {
+      background: rgba(0, 85, 164, 0.03);
+    }
+
+    /* ===== MOBILE USER CARDS ===== */
+    .mobile-user-cards {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mobile-user-card {
+      background: white;
+      border-radius: 12px;
+      padding: 14px 16px;
+      border: 1px solid rgba(0, 85, 164, 0.08);
+    }
+
+    .mobile-user-card .user-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0;
+    }
+
+    .mobile-user-card .user-label {
+      color: #4a5a6a;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .mobile-user-card .user-value {
+      color: #0a1a2e;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .mobile-user-card .user-value.role {
+      background: rgba(0, 85, 164, 0.1);
+      padding: 2px 10px;
+      border-radius: 20px;
+      color: #0055a4;
+      font-size: 0.7rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1100px) {
+      .header-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+      .logo-area { justify-content: center; }
+      .nav-links { justify-content: center; }
+      .right-actions { justify-content: center; }
+    }
+
+    @media (max-width: 900px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .charts-row { grid-template-columns: repeat(2, 1fr); }
+      .dashboard-grid { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .logo-area img { height: 40px; }
+      .quick-stats-bar { border-radius: 24px; flex-direction: column; align-items: stretch; }
+      .quick-stat-item { justify-content: space-between; }
+      .nav-btn { padding: 6px 14px; font-size: 0.75rem; }
+      
+      .user-table-wrapper {
+        display: none;
+      }
+      .mobile-user-cards {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 16px; }
+      .stats-row { grid-template-columns: 1fr; }
+      .charts-row { grid-template-columns: 1fr; }
+      .chart-container { min-height: 200px; }
+      .dashboard-title h1 { font-size: 22px; }
+      .welcome-section { padding: 14px 16px; }
+      .stat-card { padding: 14px; }
+      .quick-stats-bar { padding: 14px; }
+      .role-badge { font-size: 0.55rem; padding: 3px 10px; }
+      .back-home-btn, .logout-btn { padding: 5px 14px; font-size: 0.7rem; }
+      .dashboard-title { padding-left: 12px; }
+    }
+
+    @media (max-width: 400px) {
+      .right-actions { flex-direction: column; align-items: stretch; }
+      .back-home-btn, .logout-btn { justify-content: center; }
+      .logo-area img { height: 35px; }
+      .nav-btn { padding: 4px 10px; font-size: 0.65rem; }
+      .nav-btn i { margin-right: 4px; }
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f0f6f9; }
+    ::-webkit-scrollbar-thumb { background: #0055a4; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #003d7a; }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-container">
+    <a href="index.html" class="logo-area">
+      <img src="logo-dark 5.webp" alt="Specialty Care Hospital" onerror="this.style.display='none'">
+    </a>
+    <div class="nav-links">
+      <button class="nav-btn active" data-section="dashboard"><i class="fas fa-chart-pie"></i> Dashboard</button>
+      <button class="nav-btn" data-section="patients"><i class="fas fa-users"></i> Patients</button>
+      <button class="nav-btn" data-section="appointments"><i class="fas fa-calendar-check"></i> Appointments</button>
+      <button class="nav-btn" data-section="doctors"><i class="fas fa-user-md"></i> Doctors</button>
+      <button class="nav-btn" data-section="reports"><i class="fas fa-chart-bar"></i> Reports</button>
+    </div>
+    <div class="right-actions">
+      <!-- <span class="role-badge"><i class="fas fa-shield-alt"></i> Admin</span> -->
+      <button class="back-home-btn" id="backHomeBtn"><i class="fas fa-home"></i> Home</button>
+      <button class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="dashboard-title">
+    <h1>🏥 Admin <span>Dashboard</span></h1>
+    <p>Manage patients, appointments, doctors, and monitor hospital performance</p>
+  </div>
+
+  <!-- ===== DASHBOARD SECTION ===== -->
+  <div id="dashboard-section" class="content-section">
+    <div class="welcome-section">
+      <h2>Welcome back, <span>Dr. Admin</span> 👋</h2>
+      <p>You have 1,256 total appointments, 842 registered patients, and 12 active doctors today</p>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-users"></i></div>
+        <div class="stat-content">
+          <h3 id="statPatients">842</h3>
+          <p>Total Patients</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+        <div class="stat-content">
+          <h3 id="statAppointments">1,256</h3>
+          <p>Total Appointments</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-user-md"></i></div>
+        <div class="stat-content">
+          <h3 id="statDoctors">12</h3>
+          <p>Active Doctors</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-rupee-sign"></i></div>
+        <div class="stat-content">
+          <h3 id="statRevenue">₹12.58L</h3>
+          <p>Revenue</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="quick-stats-bar">
+      <div class="quick-stat-item">
+        <span class="quick-stat-label">🆕 New Patients</span>
+        <span class="quick-stat-value" id="quickNewPatients">12</span>
+      </div>
+      <div class="quick-stat-item">
+        <span class="quick-stat-label">📅 Today's Appointments</span>
+        <span class="quick-stat-value" id="quickTodayAppointments">32</span>
+      </div>
+      <div class="quick-stat-item">
+        <span class="quick-stat-label">🟢 Doctors Available</span>
+        <span class="quick-stat-value" id="quickDoctorsAvailable">8</span>
+      </div>
+      <div class="quick-stat-item">
+        <span class="quick-stat-label">🏥 Top Department</span>
+        <span class="quick-stat-value" id="quickTopDepartment">Cardiology</span>
+      </div>
+    </div>
+
+    <div class="charts-row">
+      <div class="chart-card">
+        <h3><i class="fas fa-chart-line"></i> Appointments Trend</h3>
+        <div class="chart-container"><canvas id="appointmentsChart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3><i class="fas fa-chart-pie"></i> Patient Status</h3>
+        <div class="chart-container"><canvas id="statusChart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3><i class="fas fa-chart-bar"></i> Top Departments</h3>
+        <div class="chart-container"><canvas id="departmentsChart"></canvas></div>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+      <div>
+        <div class="section-header">
+          <h2>👤 Recent Patients</h2>
+          <a href="404.html">View All <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="user-cards">
+          <div class="user-item">
+            <div class="user-header">
+              <span class="user-id">#P-001 - John Doe</span>
+              <span class="user-badge">Regular</span>
+            </div>
+            <div class="user-desc">Male · 45 yrs · Cardiology</div>
+            <div class="user-meta">
+              <div class="user-info"><i class="fas fa-calendar-check"></i> 3 appointments</div>
+              <span class="status-badge status-admitted">Admitted</span>
+            </div>
+          </div>
+          <div class="user-item">
+            <div class="user-header">
+              <span class="user-id">#P-002 - Jane Smith</span>
+              <span class="user-badge">Premium</span>
+            </div>
+            <div class="user-desc">Female · 32 yrs · Neurology</div>
+            <div class="user-meta">
+              <div class="user-info"><i class="fas fa-calendar-check"></i> 5 appointments</div>
+              <span class="status-badge status-active">Active</span>
+            </div>
+          </div>
+          <div class="user-item">
+            <div class="user-header">
+              <span class="user-id">#P-003 - Mike Johnson</span>
+              <span class="user-badge">New</span>
+            </div>
+            <div class="user-desc">Male · 28 yrs · Orthopedics</div>
+            <div class="user-meta">
+              <div class="user-info"><i class="fas fa-calendar-check"></i> 1 appointment</div>
+              <span class="status-badge status-pending">Pending</span>
+            </div>
+          </div>
+          <div class="user-item">
+            <div class="user-header">
+              <span class="user-id">#P-004 - Sarah Wilson</span>
+              <span class="user-badge">Premium</span>
+            </div>
+            <div class="user-desc">Female · 55 yrs · Cardiology</div>
+            <div class="user-meta">
+              <div class="user-info"><i class="fas fa-calendar-check"></i> 7 appointments</div>
+              <span class="status-badge status-verified">Verified</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-col">
+        <div class="info-card">
+          <h3><i class="fas fa-user-md"></i> Doctors on Duty</h3>
+          <ul class="staff-list">
+            <li class="staff-item">
+              <span class="staff-name"><span class="status-dot online"></span> Dr. Priya K</span>
+              <span class="staff-role">Cardiologist</span>
+            </li>
+            <li class="staff-item">
+              <span class="staff-name"><span class="status-dot online"></span> Dr. Amit J</span>
+              <span class="staff-role">Neurologist</span>
+            </li>
+            <li class="staff-item">
+              <span class="staff-name"><span class="status-dot away"></span> Dr. Neha S</span>
+              <span class="staff-role">Orthopedic</span>
+            </li>
+            <li class="staff-item">
+              <span class="staff-name"><span class="status-dot offline"></span> Dr. Rahul M</span>
+              <span class="staff-role">Pediatrician</span>
+            </li>
+          </ul>
+          <a href="404.html" class="action-btn" style="margin-top:10px; width:100%; justify-content:center;">
+            <i class="fas fa-user-plus"></i> Add Doctor
+          </a>
+        </div>
+
+        <div class="info-card">
+          <h3><i class="fas fa-bell"></i> Alerts</h3>
+          <div class="alert-item">
+            <div class="alert-icon urgent"><i class="fas fa-exclamation"></i></div>
+            <div class="alert-text">Patient <span class="highlight">#P-003</span> needs urgent attention</div>
+            <span class="alert-time">5 min ago</span>
+          </div>
+          <div class="alert-item">
+            <div class="alert-icon info"><i class="fas fa-info"></i></div>
+            <div class="alert-text">Appointment <span class="highlight">#APT-123</span> pending confirmation</div>
+            <span class="alert-time">15 min ago</span>
+          </div>
+          <div class="alert-item">
+            <div class="alert-icon success"><i class="fas fa-check"></i></div>
+            <div class="alert-text">Dr. <span class="highlight">Priya K</span> completed surgery</div>
+            <span class="alert-time">30 min ago</span>
+          </div>
+          <a href="404.html" class="action-btn" style="margin-top:10px; width:100%; justify-content:center;">
+            <i class="fas fa-eye"></i> View All Alerts
+          </a>
+        </div>
+
+        <div class="info-card">
+          <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+          <div class="action-buttons">
+            <a href="404.html" class="action-btn"><i class="fas fa-user-plus"></i> Add Patient</a>
+            <a href="404.html" class="action-btn"><i class="fas fa-calendar-plus"></i> New Appointment</a>
+            <a href="404.html" class="action-btn"><i class="fas fa-user-md"></i> Add Doctor</a>
+            <a href="404.html" class="action-btn"><i class="fas fa-file-alt"></i> Generate Report</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PATIENTS SECTION ===== -->
+  <div id="patients-section" class="content-section hidden">
+    <div class="dashboard-title">
+      <h1>👥 Patient Management</h1>
+      <p>Manage all registered patients, records, and medical history</p>
+    </div>
+    <div class="enhanced-card">
+      <h3>All Patients</h3>
+      
+      <div class="user-table-wrapper">
+        <table class="user-table">
+          <thead>
+            <tr>
+              <th>Patient ID</th>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Department</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>#P-001</strong></td>
+              <td>John Doe</td>
+              <td>Male</td>
+              <td>Cardiology</td>
+              <td><span class="status-badge status-admitted">Admitted</span></td>
+            </tr>
+            <tr>
+              <td><strong>#P-002</strong></td>
+              <td>Jane Smith</td>
+              <td>Female</td>
+              <td>Neurology</td>
+              <td><span class="status-badge status-active">Active</span></td>
+            </tr>
+            <tr>
+              <td><strong>#P-003</strong></td>
+              <td>Mike Johnson</td>
+              <td>Male</td>
+              <td>Orthopedics</td>
+              <td><span class="status-badge status-pending">Pending</span></td>
+            </tr>
+            <tr>
+              <td><strong>#P-004</strong></td>
+              <td>Sarah Wilson</td>
+              <td>Female</td>
+              <td>Cardiology</td>
+              <td><span class="status-badge status-verified">Verified</span></td>
+            </tr>
+            <tr>
+              <td><strong>#P-005</strong></td>
+              <td>Robert Brown</td>
+              <td>Male</td>
+              <td>Orthopedics</td>
+              <td><span class="status-badge status-discharged">Discharged</span></td>
+            </tr>
+            <tr>
+              <td><strong>#P-006</strong></td>
+              <td>Emily Davis</td>
+              <td>Female</td>
+              <td>Pediatrics</td>
+              <td><span class="status-badge status-active">Active</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mobile-user-cards">
+        <div class="mobile-user-card">
+          <div class="user-row"><span class="user-label">ID</span><span class="user-value"><strong>#P-001</strong></span></div>
+          <div class="user-row"><span class="user-label">Name</span><span class="user-value">John Doe</span></div>
+          <div class="user-row"><span class="user-label">Gender</span><span class="user-value">Male</span></div>
+          <div class="user-row"><span class="user-label">Department</span><span class="user-value role">Cardiology</span></div>
+          <div class="user-row"><span class="user-label">Status</span><span class="user-value"><span class="status-badge status-admitted">Admitted</span></span></div>
+        </div>
+        <div class="mobile-user-card">
+          <div class="user-row"><span class="user-label">ID</span><span class="user-value"><strong>#P-002</strong></span></div>
+          <div class="user-row"><span class="user-label">Name</span><span class="user-value">Jane Smith</span></div>
+          <div class="user-row"><span class="user-label">Gender</span><span class="user-value">Female</span></div>
+          <div class="user-row"><span class="user-label">Department</span><span class="user-value role">Neurology</span></div>
+          <div class="user-row"><span class="user-label">Status</span><span class="user-value"><span class="status-badge status-active">Active</span></span></div>
+        </div>
+        <div class="mobile-user-card">
+          <div class="user-row"><span class="user-label">ID</span><span class="user-value"><strong>#P-003</strong></span></div>
+          <div class="user-row"><span class="user-label">Name</span><span class="user-value">Mike Johnson</span></div>
+          <div class="user-row"><span class="user-label">Gender</span><span class="user-value">Male</span></div>
+          <div class="user-row"><span class="user-label">Department</span><span class="user-value role">Orthopedics</span></div>
+          <div class="user-row"><span class="user-label">Status</span><span class="user-value"><span class="status-badge status-pending">Pending</span></span></div>
+        </div>
+        <div class="mobile-user-card">
+          <div class="user-row"><span class="user-label">ID</span><span class="user-value"><strong>#P-004</strong></span></div>
+          <div class="user-row"><span class="user-label">Name</span><span class="user-value">Sarah Wilson</span></div>
+          <div class="user-row"><span class="user-label">Gender</span><span class="user-value">Female</span></div>
+          <div class="user-row"><span class="user-label">Department</span><span class="user-value role">Cardiology</span></div>
+          <div class="user-row"><span class="user-label">Status</span><span class="user-value"><span class="status-badge status-verified">Verified</span></span></div>
+        </div>
+      </div>
+
+      <a href="404.html" class="action-btn" style="margin-top:16px;"><i class="fas fa-user-plus"></i> Add New Patient</a>
+    </div>
+  </div>
+
+  <!-- ===== APPOINTMENTS SECTION ===== -->
+  <div id="appointments-section" class="content-section hidden">
+    <div class="dashboard-title">
+      <h1>📅 Appointments Management</h1>
+      <p>View and manage all appointments across the hospital</p>
+    </div>
+    <div class="grid-2">
+      <div class="enhanced-card">
+        <h3>Appointment Categories</h3>
+        <p>Cardiology - 420 appointments</p>
+        <div class="progress-bar"><div class="progress-fill" style="width:68%"></div></div>
+        <p>Neurology - 320 appointments</p>
+        <div class="progress-bar"><div class="progress-fill" style="width:52%"></div></div>
+        <p>Orthopedics - 280 appointments</p>
+        <div class="progress-bar"><div class="progress-fill" style="width:45%"></div></div>
+        <a href="404.html" class="action-btn" style="margin-top:12px;">Manage Departments</a>
+      </div>
+      <div class="enhanced-card">
+        <h3>Appointment Status</h3>
+        <p>Completed: <span class="highlight">986 appointments</span></p>
+        <p>Upcoming: <span class="highlight">227 appointments</span></p>
+        <p>Cancelled: <span class="highlight">43 appointments</span></p>
+        <div class="progress-bar"><div class="progress-fill" style="width:78%"></div></div>
+        <a href="404.html" class="action-btn" style="margin-top:12px;">View All Appointments</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DOCTORS SECTION ===== -->
+  <div id="doctors-section" class="content-section hidden">
+    <div class="dashboard-title">
+      <h1>👨‍⚕️ Doctor Management</h1>
+      <p>Manage all doctors, specialists, and their schedules</p>
+    </div>
+    <div class="grid-2">
+      <div class="enhanced-card">
+        <h3>Top Doctors</h3>
+        <p>Dr. Priya K - <span class="highlight">186 appointments</span></p>
+        <div class="progress-bar"><div class="progress-fill" style="width:78%"></div></div>
+        <p>Dr. Amit J - <span class="highlight">174 appointments</span></p>
+        <div class="progress-bar"><div class="progress-fill" style="width:72%"></div></div>
+        <p>Dr. Neha S - <span class="highlight">168 appointments</span></p>
+        <div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
+        <a href="404.html" class="action-btn" style="margin-top:12px;">View All Doctors</a>
+      </div>
+      <div class="enhanced-card">
+        <h3>Doctor Availability</h3>
+        <p>Available: <span class="highlight">8 doctors</span></p>
+        <p>On Leave: <span class="highlight">3 doctors</span></p>
+        <p>On Call: <span class="highlight">1 doctor</span></p>
+        <div class="progress-bar"><div class="progress-fill" style="width:66%"></div></div>
+        <a href="404.html" class="action-btn" style="margin-top:12px;">Manage Schedule</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== REPORTS SECTION ===== -->
+  <div id="reports-section" class="content-section hidden">
+    <div class="dashboard-title">
+      <h1>📊 Reports & Analytics</h1>
+      <p>Generate and download comprehensive hospital reports</p>
+    </div>
+    <div class="grid-2">
+      <div class="enhanced-card">
+        <h3>Hospital Summary</h3>
+        <p>Total Revenue: <span class="highlight">₹12,58,360</span></p>
+        <p>Total Patients: <span class="highlight">842</span></p>
+        <p>Total Appointments: <span class="highlight">1,256</span></p>
+        <p>Active Doctors: <span class="highlight">12</span></p>
+        <a href="404.html" class="action-btn" style="margin-top:12px;">Download Full Report</a>
+      </div>
+      <div class="enhanced-card">
+        <h3>Quick Reports</h3>
+        <div class="action-buttons" style="flex-direction:column;">
+          <a href="404.html" class="action-btn"><i class="fas fa-file-pdf"></i> Patient Analytics Report</a>
+          <a href="404.html" class="action-btn"><i class="fas fa-file-excel"></i> Appointment Report</a>
+          <a href="404.html" class="action-btn"><i class="fas fa-file-alt"></i> Revenue Report</a>
+          <a href="404.html" class="action-btn"><i class="fas fa-file-pdf"></i> Doctor Performance Report</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const barColors = ['#0055a4', '#0088cc', '#4fc3f7', '#81d4fa'];
+
+    // ===== APPOINTMENTS TREND CHART =====
+    const appointmentsCtx = document.getElementById('appointmentsChart').getContext('2d');
+    new Chart(appointmentsCtx, {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{ label: 'Appointments', data: [120, 150, 180, 220, 200, 250, 300], borderColor: '#0055a4', backgroundColor: 'rgba(0, 85, 164, 0.1)', tension: 0.4, fill: true, borderWidth: 3 }]
+      },
+      options: { responsive: true, maintainAspectRatio: true, aspectRatio: 1.5, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { color: '#f0f0f0' } }, x: { grid: { display: false } } } }
+    });
+
+    // ===== STATUS PIE CHART =====
+    const statusCtx = document.getElementById('statusChart').getContext('2d');
+    new Chart(statusCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Active', 'Admitted', 'Discharged', 'Pending'],
+        datasets: [{ data: [350, 280, 150, 62], backgroundColor: ['#2e7d32', '#0055a4', '#c62828', '#f57c00'], borderWidth: 0 }]
+      },
+      options: { responsive: true, maintainAspectRatio: true, aspectRatio: 1.5, plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } } }
+    });
+
+    // ===== DEPARTMENTS BAR CHART =====
+    const departmentsCtx = document.getElementById('departmentsChart').getContext('2d');
+    new Chart(departmentsCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Cardiology', 'Neurology', 'Orthopedics', 'Pediatrics', 'General'],
+        datasets: [{ label: 'Patients', data: [450, 380, 250, 180, 120], backgroundColor: barColors, borderRadius: 8, barPercentage: 0.7 }]
+      },
+      options: { responsive: true, maintainAspectRatio: true, aspectRatio: 1.5, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { color: '#f0f0f0' } }, x: { grid: { display: false } } } }
+    });
+
+    // ===== NAVIGATION =====
+    const navBtns = document.querySelectorAll('.nav-btn');
+    const sections = {
+      dashboard: document.getElementById('dashboard-section'),
+      patients: document.getElementById('patients-section'),
+      appointments: document.getElementById('appointments-section'),
+      doctors: document.getElementById('doctors-section'),
+      reports: document.getElementById('reports-section')
+    };
+
+    navBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        navBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const section = this.getAttribute('data-section');
+        Object.values(sections).forEach(s => { if (s) s.classList.add('hidden'); });
+        if (sections[section]) {
+          sections[section].classList.remove('hidden');
+        }
+      });
+    });
+
+    // ===== BUTTONS =====
+    document.getElementById('backHomeBtn').addEventListener('click', () => window.location.href = 'index.html');
+    document.getElementById('logoutBtn').addEventListener('click', () => window.location.href = 'login.html');
+
+    // ===== LIVE UPDATES =====
+    function updateStats() {
+      document.getElementById('statPatients').textContent = Math.floor(Math.random() * 300) + 700;
+      document.getElementById('statAppointments').textContent = Math.floor(Math.random() * 500) + 1000;
+      document.getElementById('statDoctors').textContent = Math.floor(Math.random() * 8) + 10;
+      document.getElementById('statRevenue').textContent = '₹' + (Math.random() * 5 + 10).toFixed(2) + 'L';
+      document.getElementById('quickNewPatients').textContent = Math.floor(Math.random() * 15) + 5;
+      document.getElementById('quickTodayAppointments').textContent = Math.floor(Math.random() * 30) + 20;
+      document.getElementById('quickDoctorsAvailable').textContent = Math.floor(Math.random() * 6) + 5;
+    }
+    setInterval(updateStats, 8000);
+
+    console.log('%c🏥 Specialty Care Hospital | Admin Dashboard', 'color: #0055a4; font-size: 16px; font-weight: bold;');
+    console.log('%c🌟 Fully responsive hospital management', 'color: #0a1a2e; font-size: 12px;');
+  });
+</script>
+</body>
+</html>

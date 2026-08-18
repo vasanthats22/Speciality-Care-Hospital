@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>Specialty Care Hospital-Contact</title>
+
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f6f9;
+            color: #0a1a2e;
+            overflow-x: hidden !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ===== HEADER PLACEHOLDER ===== */
+        #header-placeholder {
+            width: 100%;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        /* ===== FOOTER PLACEHOLDER ===== */
+        #footer-placeholder {
+            width: 100%;
+            flex-shrink: 0;
+            margin-top: auto;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* ===== SECTION STYLES ===== */
+        section {
+            padding: 60px 0;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #0a1a2e;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .section-title i {
+            color: #0055a4;
+            margin-right: 12px;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: #4a5a6a;
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .section-sub strong {
+            color: #0055a4;
+        }
+
+        /* ============================================================ */
+        /*  SECTION 1: CONTACT SECTION                                  */
+        /* ============================================================ */
+        .contact-section {
+            background: #ffffff;
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(0, 85, 164, 0.06);
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contact-header .icon-circle {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(0, 85, 164, 0.08), rgba(0, 85, 164, 0.04));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 1.8rem;
+            color: #0055a4;
+            border: 2px solid rgba(0, 85, 164, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-header .icon-circle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(0, 85, 164, 0.15);
+        }
+
+        .contact-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0a1a2e;
+        }
+
+        .contact-header h1 i {
+            color: #0055a4;
+            margin-right: 12px;
+        }
+
+        .contact-header p {
+            color: #4a5a6a;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 8px auto 0;
+        }
+
+        .contact-header p strong {
+            color: #0055a4;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            align-items: start;
+            width: 100%;
+        }
+
+        /* LEFT COLUMN */
+        .contact-left {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 18px 20px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+            border: 1px solid transparent;
+            width: 100%;
+        }
+
+        .contact-item:hover {
+            background: #ffffff;
+            border-color: rgba(0, 85, 164, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 40, 80, 0.06);
+            transform: translateX(4px);
+        }
+
+        .contact-item .icon-circle {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            background: linear-gradient(135deg, rgba(0, 85, 164, 0.08), rgba(0, 85, 164, 0.04));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #0055a4;
+            border: 2px solid rgba(0, 85, 164, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover .icon-circle {
+            background: #0055a4;
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        .contact-item .info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .contact-item .info h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #0a1a2e;
+            margin-bottom: 2px;
+        }
+
+        .contact-item .info p {
+            color: #4a5a6a;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+
+        .contact-item .info .highlight {
+            color: #0055a4;
+            font-weight: 600;
+        }
+
+        .contact-item .info .gold {
+            color: #0055a4;
+            font-weight: 700;
+        }
+
+        .contact-divider {
+            height: 1px;
+            background: rgba(0, 85, 164, 0.06);
+            margin: 2px 0;
+        }
+
+        /* Map Container */
+        .map-container {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 6px;
+            border: 2px solid rgba(0, 85, 164, 0.06);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 180px;
+            border: none;
+            display: block;
+        }
+
+        /* RIGHT COLUMN - FORM */
+        .contact-right {
+            background: #ffffff;
+            padding: 36px 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 85, 164, 0.06);
+            box-shadow: 0 4px 30px rgba(0, 40, 80, 0.04);
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .contact-right form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            width: 100%;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            width: 100%;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #0a1a2e;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group label i {
+            color: #0055a4;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px 16px;
+            border: 2px solid #e8edf2;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+            color: #0a1a2e;
+            outline: none;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #0055a4;
+            box-shadow: 0 0 0 4px rgba(0, 85, 164, 0.08);
+            background: #ffffff;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #94a3b8;
+        }
+
+        /* Phone Row */
+        .phone-row {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .country-code {
+            position: relative;
+            width: 100%;
+        }
+
+        .country-code select {
+            appearance: none;
+            -webkit-appearance: none;
+            padding: 12px 14px;
+            border: 2px solid #e8edf2;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            background: #f8fafc;
+            color: #0a1a2e;
+            outline: none;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            padding-right: 40px;
+        }
+
+        .country-code select:focus {
+            border-color: #0055a4;
+            box-shadow: 0 0 0 4px rgba(0, 85, 164, 0.08);
+            background: #ffffff;
+        }
+
+        .country-code .select-arrow {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 0.7rem;
+            pointer-events: none;
+        }
+
+        .phone-number {
+            width: 100%;
+        }
+
+        .phone-number input {
+            width: 100%;
+        }
+
+        .form-group .error-msg {
+            color: #e53e3e;
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: none;
+            padding-left: 4px;
+        }
+
+        .form-group .error-msg.show {
+            display: block;
+            animation: shake 0.4s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-4px); }
+            75% { transform: translateX(4px); }
+        }
+
+        .form-group.input-error input,
+        .form-group.input-error select,
+        .form-group.input-error textarea {
+            border-color: #e53e3e;
+        }
+
+        /* Date Wrapper */
+        .date-wrapper {
+            width: 100%;
+        }
+
+        .date-wrapper input {
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .date-wrapper input[type="date"] {
+            padding: 12px 16px;
+        }
+
+        /* Submit Button */
+        .btn-book {
+            background: #0055a4;
+            color: #ffffff;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 20px rgba(0, 85, 164, 0.25);
+            font-family: 'Inter', sans-serif;
+            width: 100%;
+        }
+
+        .btn-book:hover {
+            background: #003d7a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 85, 164, 0.35);
+        }
+
+        .btn-book i {
+            font-size: 1rem;
+        }
+
+        .form-submit-row {
+            margin-top: 4px;
+            width: 100%;
+        }
+
+        /* ============================================================ */
+        /*  SECTION 2: WHY CONTACT US                                  */
+        /* ============================================================ */
+        .why-contact-section {
+            background: #f8fafc;
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(0, 85, 164, 0.06);
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            width: 100%;
+        }
+
+        .why-card {
+            background: #ffffff;
+            padding: 30px 24px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(0, 85, 164, 0.06);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 12px rgba(0, 40, 80, 0.03);
+            width: 100%;
+        }
+
+        .why-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(0, 85, 164, 0.08);
+            border-color: rgba(0, 85, 164, 0.1);
+        }
+
+        .why-card .icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(0, 85, 164, 0.08), rgba(0, 85, 164, 0.04));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 14px;
+            font-size: 1.5rem;
+            color: #0055a4;
+            transition: all 0.3s ease;
+        }
+
+        .why-card:hover .icon {
+            background: #0055a4;
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        .why-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0a1a2e;
+            margin-bottom: 6px;
+        }
+
+        .why-card p {
+            color: #4a5a6a;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* ============================================================ */
+        /*  SECTION 3: FAQ SECTION                                     */
+        /* ============================================================ */
+        .faq-section {
+            background: #ffffff;
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(0, 85, 164, 0.06);
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .faq-item {
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 85, 164, 0.06);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            width: 100%;
+        }
+
+        /* ===== FAQ ACTIVE BG COLOR ===== */
+        .faq-item.active-faq {
+            background: rgba(0, 85, 164, 0.08) !important;
+            border-color: #0055a4 !important;
+            box-shadow: 0 4px 20px rgba(0, 85, 164, 0.1);
+        }
+
+        .faq-item:hover {
+            border-color: rgba(0, 85, 164, 0.12);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #0a1a2e;
+            transition: all 0.3s ease;
+            user-select: none;
+            gap: 16px;
+        }
+
+        .faq-question:hover {
+            background: rgba(0, 85, 164, 0.04);
+        }
+
+        .faq-question .faq-icon {
+            font-size: 1rem;
+            color: #0055a4;
+            transition: all 0.3s ease;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        .faq-question .faq-icon i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active .faq-icon i {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 24px;
+            color: #4a5a6a;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .faq-answer.open {
+            max-height: 300px;
+            padding: 0 24px 20px;
+        }
+
+        /* ============================================================ */
+        /*  SECTION 4: SOCIAL MEDIA                                    */
+        /* ============================================================ */
+        .social-section {
+            background: #f8fafc;
+            padding: 60px 0;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .social-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            aspect-ratio: 1;
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 85, 164, 0.06);
+            color: #0055a4;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 2px 12px rgba(0, 40, 80, 0.03);
+        }
+
+        .social-card:hover {
+            background: #0055a4;
+            color: #ffffff;
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(0, 85, 164, 0.25);
+        }
+
+        /* ============================================================ */
+        /*  RESPONSIVE                                                 */
+        /* ============================================================ */
+        @media (max-width: 1024px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .social-grid {
+                max-width: 400px;
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 40px 0;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .contact-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .contact-right {
+                padding: 24px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .phone-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .why-card {
+                padding: 20px 16px;
+            }
+
+            .social-grid {
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 300px;
+                gap: 12px;
+            }
+
+            .social-card {
+                font-size: 1.4rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .faq-question {
+                font-size: 0.85rem;
+                padding: 14px 16px;
+            }
+
+            .faq-answer {
+                font-size: 0.8rem;
+                line-height: 1.6;
+            }
+
+            .faq-answer.open {
+                padding: 0 16px 16px;
+            }
+
+            .contact-item {
+                padding: 14px 16px;
+            }
+
+            .contact-item .icon-circle {
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+                font-size: 1rem;
+            }
+
+            .contact-item .info h4 {
+                font-size: 0.85rem;
+            }
+
+            .contact-item .info p {
+                font-size: 0.8rem;
+            }
+
+            .map-container iframe {
+                height: 140px;
+            }
+
+            .btn-book {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 12px;
+            }
+
+            .contact-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .contact-header p {
+                font-size: 0.9rem;
+            }
+
+            .contact-header .icon-circle {
+                width: 56px;
+                height: 56px;
+                font-size: 1.4rem;
+            }
+
+            .contact-right {
+                padding: 16px 14px;
+                border-radius: 14px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .why-card {
+                padding: 14px 10px;
+            }
+
+            .why-card .icon {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+            }
+
+            .why-card h4 {
+                font-size: 0.85rem;
+            }
+
+            .why-card p {
+                font-size: 0.7rem;
+            }
+
+            .social-grid {
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 220px;
+                gap: 10px;
+            }
+
+            .social-card {
+                font-size: 1.1rem;
+                border-radius: 12px;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .section-sub {
+                font-size: 0.85rem;
+                padding: 0 10px;
+                margin-bottom: 28px;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 10px 12px;
+                font-size: 0.8rem;
+            }
+
+            .form-group label {
+                font-size: 0.8rem;
+            }
+
+            .btn-book {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+            }
+
+            .faq-question {
+                font-size: 0.8rem;
+                padding: 12px 14px;
+            }
+
+            .faq-answer.open {
+                padding: 0 14px 14px;
+            }
+
+            .contact-item {
+                padding: 12px 14px;
+            }
+
+            .contact-item .icon-circle {
+                width: 36px;
+                height: 36px;
+                min-width: 36px;
+                font-size: 0.9rem;
+            }
+
+            .contact-item .info h4 {
+                font-size: 0.8rem;
+            }
+
+            .contact-item .info p {
+                font-size: 0.75rem;
+            }
+
+            .country-code select {
+                padding: 10px 12px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .container {
+                padding: 0 8px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+
+            .why-card {
+                padding: 10px 8px;
+            }
+
+            .why-card .icon {
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+            }
+
+            .why-card h4 {
+                font-size: 0.75rem;
+            }
+
+            .why-card p {
+                font-size: 0.65rem;
+            }
+
+            .social-grid {
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 160px;
+                gap: 8px;
+            }
+
+            .social-card {
+                font-size: 0.9rem;
+                border-radius: 10px;
+            }
+
+            .contact-right {
+                padding: 12px 10px;
+            }
+
+            .contact-header h1 {
+                font-size: 1.3rem;
+            }
+
+            .section-title {
+                font-size: 1.1rem;
+            }
+
+            .faq-question {
+                font-size: 0.75rem;
+                padding: 10px 12px;
+            }
+
+            .faq-answer {
+                font-size: 0.7rem;
+            }
+
+            .btn-book {
+                font-size: 0.75rem;
+                padding: 8px 12px;
+            }
+
+            .contact-item {
+                padding: 10px 10px;
+                gap: 10px;
+            }
+
+            .contact-item .icon-circle {
+                width: 32px;
+                height: 32px;
+                min-width: 32px;
+                font-size: 0.8rem;
+            }
+
+            .contact-item .info h4 {
+                font-size: 0.75rem;
+            }
+
+            .contact-item .info p {
+                font-size: 0.7rem;
+            }
+
+            .country-code select {
+                padding: 8px 10px;
+                font-size: 0.75rem;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 8px 10px;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* ============================================================ */
+        /*  SUCCESS TOAST                                              */
+        /* ============================================================ */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #0a1a2e;
+            color: #ffffff;
+            padding: 16px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 8px 30px rgba(0, 40, 80, 0.2);
+            transform: translateY(120px);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 9999;
+            border-left: 4px solid #10b981;
+            max-width: 90%;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast i {
+            font-size: 1.2rem;
+            color: #10b981;
+        }
+
+        @media (max-width: 480px) {
+            .toast {
+                bottom: 16px;
+                right: 16px;
+                left: 16px;
+                padding: 14px 18px;
+                font-size: 0.8rem;
+                max-width: calc(100% - 32px);
+            }
+        }
+
+        /* ===== Fix for header and footer overflow ===== */
+        #header-placeholder > *,
+        #footer-placeholder > * {
+            max-width: 100% !important;
+            overflow: hidden !important;
+        }
+
+        /* ===== Fix for any potential overflow ===== */
+        .contact-wrapper,
+        .why-grid,
+        .faq-list,
+        .social-grid,
+        .contact-left,
+        .contact-right,
+        .contact-item,
+        .form-group,
+        .phone-row,
+        .country-code,
+        .phone-number {
+            max-width: 100% !important;
+            overflow: hidden !important;
+        }
+
+        img,
+        iframe,
+        video {
+            max-width: 100% !important;
+            height: auto !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER PLACEHOLDER ===== -->
+    <div id="header-placeholder"></div>
+
+    <!-- ============================================================ -->
+    <!--  SECTION 1: CONTACT SECTION                                  -->
+    <!-- ============================================================ -->
+    <section class="contact-section">
+        <div class="container">
+
+            <div class="contact-header" data-aos="fade-up" data-aos-duration="600">
+                <div class="icon-circle">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h1><i class="fas fa-envelope"></i> Get In Touch</h1>
+                <p>Connect with <strong>Specialty Care Hospital</strong> and let us provide you with world-class healthcare services.</p>
+            </div>
+
+            <div class="contact-wrapper">
+
+                <!-- LEFT COLUMN – Contact Info -->
+                <div class="contact-left">
+
+                    <div class="contact-item" data-aos="fade-right" data-aos-duration="500">
+                        <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info">
+                            <h4>Our Hospital Location</h4>
+                            <p>123 Healthcare Boulevard, Medical District,<br />New York, NY 10001</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-divider"></div>
+
+                    <div class="contact-item" data-aos="fade-right" data-aos-duration="500" data-aos-delay="50">
+                        <div class="icon-circle"><i class="fas fa-map"></i></div>
+                        <div class="info" style="flex:1;">
+                            <h4>Find Us On Map</h4>
+                            <div class="map-container">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00369368400567!3d40.71312937933051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a316bb7ae0b%3A0x4b0e0b0e0b0e0b0e!2sNewYork-Presbyterian%20Hospital!5e0!3m2!1sen!2sus!4v1620000000000"
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-divider"></div>
+
+                    <div class="contact-item" data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
+                        <div class="icon-circle"><i class="fas fa-comment-dots"></i></div>
+                        <div class="info">
+                            <h4>Live Chat</h4>
+                            <p>Chat with our healthcare experts <span class="gold">24/7</span></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-divider"></div>
+
+                    <div class="contact-item" data-aos="fade-right" data-aos-duration="500" data-aos-delay="150">
+                        <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
+                        <div class="info">
+                            <h4>Phone Number</h4>
+                            <p>+1 (234) 567-8900</p>
+                            <p style="font-size:0.7rem; color:#94a3b8;">Available 24/7 for emergencies</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-divider"></div>
+
+                    <div class="contact-item" data-aos="fade-right" data-aos-duration="500" data-aos-delay="200">
+                        <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+                        <div class="info">
+                            <h4>Email Address</h4>
+                            <p>info@specialtycare.com</p>
+                            <p style="font-size:0.7rem; color:#94a3b8;">We respond within 24 hours</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-divider"></div>
+
+                    <div class="contact-item" data-aos="fade-right" data-aos-duration="500" data-aos-delay="250">
+                        <div class="icon-circle"><i class="fas fa-clock"></i></div>
+                        <div class="info">
+                            <h4>Hospital Timings</h4>
+                            <p>Monday - Friday <span class="highlight">(8:00 AM - 8:00 PM)</span></p>
+                            <p>Saturday <span class="highlight">(9:00 AM - 5:00 PM)</span></p>
+                            <p>Sunday <span class="gold">(10:00 AM - 2:00 PM)</span></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-divider"></div>
+
+                    <div class="contact-item" data-aos="fade-right" data-aos-duration="500" data-aos-delay="300">
+                        <div class="icon-circle"><i class="fas fa-ambulance"></i></div>
+                        <div class="info">
+                            <h4>Emergency Services</h4>
+                            <p>24/7 Emergency Care Available</p>
+                            <p style="font-size:0.7rem; color:#94a3b8;">Dial <span class="highlight">911</span> for immediate assistance</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT COLUMN – Form -->
+                <div class="contact-right" data-aos="fade-left" data-aos-duration="600">
+                    <form id="contactForm" novalidate>
+                        <div class="form-row">
+                            <div class="form-group" id="firstNameGroup">
+                                <label for="firstName"><i class="fas fa-user"></i> First Name</label>
+                                <input type="text" id="firstName" placeholder="Enter first name" required onkeypress="return restrictInput(event)" />
+                                <div class="error-msg" id="firstNameError">Please enter your first name</div>
+                            </div>
+                            <div class="form-group" id="lastNameGroup">
+                                <label for="lastName"><i class="fas fa-user"></i> Last Name</label>
+                                <input type="text" id="lastName" placeholder="Enter last name" required onkeypress="return restrictInput(event)" />
+                                <div class="error-msg" id="lastNameError">Please enter your last name</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="emailGroup">
+                            <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                            <input type="email" id="email" placeholder="you@example.com" required />
+                            <div class="error-msg" id="emailError">Please enter a valid email address</div>
+                        </div>
+
+                        <div class="form-group" id="phoneGroup">
+                            <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+                            <div class="phone-row">
+                                <div class="country-code">
+                                    <select id="countryCode" required>
+                                        <option value="+1">🇺🇸 US +1</option>
+                                        <option value="+44">🇬🇧 UK +44</option>
+                                        <option value="+61">🇦🇺 AU +61</option>
+                                        <option value="+91">🇮🇳 IN +91</option>
+                                        <option value="+81">🇯🇵 JP +81</option>
+                                        <option value="+49">🇩🇪 DE +49</option>
+                                        <option value="+33">🇫🇷 FR +33</option>
+                                        <option value="+39">🇮🇹 IT +39</option>
+                                        <option value="+55">🇧🇷 BR +55</option>
+                                        <option value="+86">🇨🇳 CN +86</option>
+                                    </select>
+                                    <span class="select-arrow"><i class="fas fa-chevron-down"></i></span>
+                                </div>
+                                <div class="phone-number">
+                                    <input type="tel" id="phone" placeholder="(555) 000-0000" required maxlength="14" oninput="applyPhoneMask(this)" />
+                                </div>
+                            </div>
+                            <div class="error-msg" id="phoneError">Please enter a valid phone number (10 digits)</div>
+                        </div>
+
+                        <div class="form-group" id="dateGroup">
+                            <label for="dateSelect"><i class="fas fa-calendar"></i> Preferred Appointment Date</label>
+                            <div class="date-wrapper">
+                                <input type="text" id="dateSelect" placeholder="Select your preferred appointment date" required
+                                onfocus="this.type='date'" onblur="if(!this.value) this.type='text'" />
+                            </div>
+                            <div class="error-msg" id="dateError">Please select a date</div>
+                        </div>
+
+                        <div class="form-group" id="messageGroup">
+                            <label for="message"><i class="fas fa-pencil"></i> Your Message</label>
+                            <textarea id="message" placeholder="Tell us about your health concerns or inquiry..." required></textarea>
+                            <div class="error-msg" id="messageError">Please enter your message</div>
+                        </div>
+
+                        <div class="form-submit-row">
+                            <button type="submit" class="btn-book">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!--  SECTION 2: WHY CONTACT US                                  -->
+    <!-- ============================================================ -->
+    <section class="why-contact-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-aos-duration="500"><i class="fas fa-heartbeat"></i> Why Choose Specialty Care?</h2>
+            <p class="section-sub" data-aos="fade-up" data-aos-duration="500" data-aos-delay="50">
+                Here's why thousands of patients trust <strong>Specialty Care Hospital</strong> for their healthcare needs.
+            </p>
+
+            <div class="why-grid">
+                <div class="why-card" data-aos="fade-up" data-aos-duration="500" data-aos-delay="0">
+                    <div class="icon"><i class="fas fa-user-md"></i></div>
+                    <h4>Expert Doctors</h4>
+                    <p>Highly qualified specialists across all medical departments with years of experience</p>
+                </div>
+                <div class="why-card" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
+                    <div class="icon"><i class="fas fa-heartbeat"></i></div>
+                    <h4>24/7 Emergency</h4>
+                    <p>Round-the-clock emergency care with expert medical staff and rapid response</p>
+                </div>
+                <div class="why-card" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
+                    <div class="icon"><i class="fas fa-headset"></i></div>
+                    <h4>24/7 Support</h4>
+                    <p>Our healthcare team is always ready to help with your medical queries</p>
+                </div>
+                <div class="why-card" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
+                    <div class="icon"><i class="fas fa-star"></i></div>
+                    <h4>Premium Care</h4>
+                    <p>World-class medical facilities with state-of-the-art equipment and technology</p>
+                </div>
+                <div class="why-card" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
+                    <div class="icon"><i class="fas fa-hospital"></i></div>
+                    <h4>Modern Facilities</h4>
+                    <p>Advanced medical technology and comfortable patient care environment</p>
+                </div>
+                <div class="why-card" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500">
+                    <div class="icon"><i class="fas fa-heart"></i></div>
+                    <h4>Patient Love</h4>
+                    <p>4.8★ rating from 10,000+ satisfied patients and their families</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!--  SECTION 3: FAQ SECTION                                      -->
+    <!-- ============================================================ -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-aos-duration="500"><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+            <p class="section-sub" data-aos="fade-up" data-aos-duration="500" data-aos-delay="50">
+                Find answers to common questions about <strong>Specialty Care Hospital</strong> services, appointments, and facilities.
+            </p>
+
+            <div class="faq-list">
+                <div class="faq-item" data-aos="fade-up" data-aos-duration="400">
+                    <div class="faq-question" data-target="faq1">
+                        <span>What medical specialties does Specialty Care Hospital offer?</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer" id="faq1">
+                        We offer a wide range of medical specialties including Cardiology, Neurology, Orthopedics, Pediatrics, General Medicine, Gynecology, Dermatology, and Emergency Care. All our departments are staffed by highly qualified specialists.
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-duration="400" data-aos-delay="50">
+                    <div class="faq-question" data-target="faq2">
+                        <span>How can I book an appointment?</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer" id="faq2">
+                        You can book an appointment by calling our helpline, using our online booking system, or visiting our hospital in person. We also offer telemedicine consultations for patients who prefer virtual visits.
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-duration="400" data-aos-delay="100">
+                    <div class="faq-question" data-target="faq3">
+                        <span>Does the hospital accept health insurance?</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer" id="faq3">
+                        Yes, we accept all major health insurance plans. Our billing department will help you verify your coverage and process insurance claims. We also offer flexible payment options for uninsured patients.
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-duration="400" data-aos-delay="150">
+                    <div class="faq-question" data-target="faq4">
+                        <span>What emergency services are available?</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer" id="faq4">
+                        Our 24/7 emergency department is fully equipped to handle all types of medical emergencies. We have a dedicated trauma team, ambulances, and emergency surgery facilities available round the clock.
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-duration="400" data-aos-delay="200">
+                    <div class="faq-question" data-target="faq5">
+                        <span>How do I get my test results?</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer" id="faq5">
+                        Test results are available through our patient portal, by visiting our hospital, or by calling our lab department. Results are typically available within 24-48 hours. Your doctor will also discuss the results with you during your follow-up appointment.
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-duration="400" data-aos-delay="250">
+                    <div class="faq-question" data-target="faq6">
+                        <span>Do you offer telemedicine services?</span>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer" id="faq6">
+                        Yes! We offer comprehensive telemedicine services for consultation, follow-ups, and routine check-ups. You can connect with our doctors from the comfort of your home through video or phone consultations.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!--  SECTION 4: SOCIAL MEDIA                                     -->
+    <!-- ============================================================ -->
+    <section class="social-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-aos-duration="500"><i class="fas fa-share-alt"></i> Connect With Us</h2>
+            <p class="section-sub" data-aos="fade-up" data-aos-duration="500" data-aos-delay="50">
+                Follow us on social media for health tips, hospital updates, and wellness information!
+            </p>
+
+            <div class="social-grid">
+                <a href="404.html" class="social-card" aria-label="Facebook" data-aos="zoom-in" data-aos-duration="400">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="404.html" class="social-card" aria-label="Instagram" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="50">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="404.html" class="social-card" aria-label="Twitter (X)" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="100">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                <a href="404.html" class="social-card" aria-label="YouTube" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="150">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="404.html" class="social-card" aria-label="LinkedIn" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="200">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="404.html" class="social-card" aria-label="Pinterest" data-aos="zoom-in" data-aos-duration="400" data-aos-delay="250">
+                    <i class="fab fa-pinterest-p"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER PLACEHOLDER ===== -->
+    <div id="footer-placeholder"></div>
+
+    <!-- ============================================================ -->
+    <!--  SCRIPTS                                                     -->
+    <!-- ============================================================ -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // =========================================
+        // HEADER & FOOTER LOADER
+        // =========================================
+        (function loadHeaderFooter() {
+            // Load Header
+            fetch('header.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Header not found');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    initHeader();
+                })
+                .catch(error => {
+                    console.error('Error loading header:', error);
+                    document.getElementById('header-placeholder').innerHTML = 
+                        '<div style="background:#0055a4; color:white; padding:15px; text-align:center; font-weight:500;">⚠️ Header failed to load</div>';
+                });
+
+            // Load Footer
+            fetch('footer.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Footer not found');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                    initFooter();
+                })
+                .catch(error => {
+                    console.error('Error loading footer:', error);
+                    document.getElementById('footer-placeholder').innerHTML = 
+                        '<div style="background:#0a1a2e; color:#a0aec0; padding:20px; text-align:center;">⚠️ Footer failed to load</div>';
+                });
+        })();
+
+        // =========================================
+        // HEADER INITIALIZATION
+        // =========================================
+        function initHeader() {
+            const menuBtn = document.getElementById('menuBtn');
+            const closeBtn = document.getElementById('closeBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+            const header = document.getElementById('mainHeader');
+
+            if (menuBtn) {
+                menuBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (mobileMenu) mobileMenu.classList.add('open');
+                    if (mobileOverlay) mobileOverlay.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (mobileMenu) mobileMenu.classList.remove('open');
+                    if (mobileOverlay) mobileOverlay.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (mobileMenu) mobileMenu.classList.remove('open');
+                    mobileOverlay.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (mobileMenu) mobileMenu.classList.remove('open');
+                    if (mobileOverlay) mobileOverlay.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    if (mobileMenu) mobileMenu.classList.remove('open');
+                    if (mobileOverlay) mobileOverlay.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 200);
+                });
+            });
+
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 20) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
+
+            document.querySelectorAll('.desktop-nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    document.querySelectorAll('.desktop-nav a').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    window.location.href = href;
+                });
+            });
+
+            const headerLoginBtn = document.querySelector('.login-btn');
+            if (headerLoginBtn) {
+                headerLoginBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = this.getAttribute('href');
+                });
+            }
+
+            const headerSignupBtn = document.querySelector('.signup-btn');
+            if (headerSignupBtn) {
+                headerSignupBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = this.getAttribute('href');
+                });
+            }
+
+            const headerLoginMobile = document.querySelector('.login-mobile');
+            if (headerLoginMobile) {
+                headerLoginMobile.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (mobileMenu) mobileMenu.classList.remove('open');
+                    if (mobileOverlay) mobileOverlay.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                    setTimeout(() => {
+                        window.location.href = this.getAttribute('href');
+                    }, 200);
+                });
+            }
+
+            const headerSignupMobile = document.querySelector('.signup-mobile');
+            if (headerSignupMobile) {
+                headerSignupMobile.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (mobileMenu) mobileMenu.classList.remove('open');
+                    if (mobileOverlay) mobileOverlay.classList.remove('open');
+                    document.body.style.overflow = 'auto';
+                    setTimeout(() => {
+                        window.location.href = this.getAttribute('href');
+                    }, 200);
+                });
+            }
+
+            console.log('✅ Header initialized');
+        }
+
+        // =========================================
+        // FOOTER INITIALIZATION
+        // =========================================
+        function initFooter() {
+            const footerHamburger = document.getElementById('mobileHamburger');
+            const footerNavMenu = document.getElementById('mobileNavMenu');
+
+            if (footerHamburger && footerNavMenu) {
+                footerHamburger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    footerNavMenu.classList.toggle('open');
+                });
+            }
+
+            document.querySelectorAll('.footer-nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    window.location.href = href;
+                });
+            });
+
+            document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    if (footerNavMenu) footerNavMenu.classList.remove('open');
+                    window.location.href = href;
+                });
+            });
+
+            document.querySelectorAll('.footer-social a, .mobile-social a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    window.location.href = href;
+                });
+            });
+
+            const subscribeBtn = document.getElementById('footerSubscribeBtn');
+            const emailInput = document.getElementById('footerEmail');
+            const emailError = document.getElementById('footerEmailError');
+
+            function validateEmail(email) {
+                return /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/.test(email);
+            }
+
+            if (subscribeBtn && emailInput && emailError) {
+                subscribeBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const email = emailInput.value.trim();
+
+                    if (!email) {
+                        emailError.classList.add('show');
+                        emailError.textContent = 'Please enter your email address';
+                        emailInput.classList.add('error');
+                    } else if (!validateEmail(email)) {
+                        emailError.classList.add('show');
+                        emailError.textContent = 'Please enter a valid email address';
+                        emailInput.classList.add('error');
+                    } else {
+                        emailError.classList.remove('show');
+                        emailInput.classList.remove('error');
+                        window.location.href = '404.html';
+                    }
+                });
+
+                emailInput.addEventListener('input', function() {
+                    if (this.value.trim()) {
+                        emailError.classList.remove('show');
+                        this.classList.remove('error');
+                    }
+                });
+            }
+
+            console.log('✅ Footer initialized');
+        }
+
+        // =========================================
+        // WINDOW RESIZE HANDLER
+        // =========================================
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 868) {
+                const mobileMenu = document.getElementById('mobileMenu');
+                const mobileOverlay = document.getElementById('mobileOverlay');
+                if (mobileMenu) mobileMenu.classList.remove('open');
+                if (mobileOverlay) mobileOverlay.classList.remove('open');
+
+                const footerNavMenu = document.getElementById('mobileNavMenu');
+                if (footerNavMenu) footerNavMenu.classList.remove('open');
+
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // ===== INITIALIZE AOS =====
+        AOS.init({
+            once: true,
+            offset: 40,
+            duration: 600,
+            easing: 'ease-out-cubic'
+        });
+
+        // ===== RESTRICT INPUT TO LETTERS & SPACES =====
+        function restrictInput(e) {
+            var key = e.key;
+            var allowed = /^[a-zA-Z\s]$/;
+            if (!allowed.test(key) && key !== 'Backspace' && key !== 'Tab' && key !== 'Delete') {
+                e.preventDefault();
+                return false;
+            }
+            return true;
+        }
+
+        // ===== PHONE MASK =====
+        function applyPhoneMask(input) {
+            var cleaned = input.value.replace(/\D/g, '');
+            if (cleaned.length > 10) cleaned = cleaned.slice(0, 10);
+            var formatted = '';
+            for (var i = 0; i < cleaned.length; i++) {
+                if (i === 0) formatted += '(';
+                formatted += cleaned[i];
+                if (i === 2) formatted += ') ';
+                if (i === 5) formatted += '-';
+            }
+            input.value = formatted;
+        }
+
+        // ===== FORM VALIDATION =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const firstName = document.getElementById('firstName');
+            const lastName = document.getElementById('lastName');
+            const email = document.getElementById('email');
+            const phone = document.getElementById('phone');
+            const dateSelect = document.getElementById('dateSelect');
+            const message = document.getElementById('message');
+
+            const firstNameError = document.getElementById('firstNameError');
+            const lastNameError = document.getElementById('lastNameError');
+            const emailError = document.getElementById('emailError');
+            const phoneError = document.getElementById('phoneError');
+            const dateError = document.getElementById('dateError');
+            const messageError = document.getElementById('messageError');
+
+            const firstNameGroup = document.getElementById('firstNameGroup');
+            const lastNameGroup = document.getElementById('lastNameGroup');
+            const emailGroup = document.getElementById('emailGroup');
+            const phoneGroup = document.getElementById('phoneGroup');
+            const dateGroup = document.getElementById('dateGroup');
+            const messageGroup = document.getElementById('messageGroup');
+
+            // Clear errors on input
+            firstName.addEventListener('input', function() {
+                if (this.value.trim()) {
+                    firstNameError.classList.remove('show');
+                    firstNameGroup.classList.remove('input-error');
+                }
+            });
+
+            lastName.addEventListener('input', function() {
+                if (this.value.trim()) {
+                    lastNameError.classList.remove('show');
+                    lastNameGroup.classList.remove('input-error');
+                }
+            });
+
+            email.addEventListener('input', function() {
+                if (this.value.trim()) {
+                    emailError.classList.remove('show');
+                    emailGroup.classList.remove('input-error');
+                }
+            });
+
+            phone.addEventListener('input', function() {
+                if (this.value.replace(/\D/g, '').length >= 10) {
+                    phoneError.classList.remove('show');
+                    phoneGroup.classList.remove('input-error');
+                }
+            });
+
+            dateSelect.addEventListener('change', function() {
+                if (this.value) {
+                    dateError.classList.remove('show');
+                    dateGroup.classList.remove('input-error');
+                }
+            });
+
+            message.addEventListener('input', function() {
+                if (this.value.trim()) {
+                    messageError.classList.remove('show');
+                    messageGroup.classList.remove('input-error');
+                }
+            });
+
+            function validateEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+
+            function validatePhone(phone) {
+                var digits = phone.replace(/\D/g, '');
+                return digits.length >= 10;
+            }
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                let isValid = true;
+
+                // First Name
+                if (!firstName.value.trim() || firstName.value.trim().length < 2) {
+                    firstNameError.textContent = 'Please enter your first name (minimum 2 characters).';
+                    firstNameError.classList.add('show');
+                    firstNameGroup.classList.add('input-error');
+                    isValid = false;
+                } else {
+                    firstNameError.classList.remove('show');
+                    firstNameGroup.classList.remove('input-error');
+                }
+
+                // Last Name
+                if (!lastName.value.trim() || lastName.value.trim().length < 2) {
+                    lastNameError.textContent = 'Please enter your last name (minimum 2 characters).';
+                    lastNameError.classList.add('show');
+                    lastNameGroup.classList.add('input-error');
+                    isValid = false;
+                } else {
+                    lastNameError.classList.remove('show');
+                    lastNameGroup.classList.remove('input-error');
+                }
+
+                // Email
+                if (!email.value.trim() || !validateEmail(email.value.trim())) {
+                    emailError.textContent = 'Please enter a valid email address.';
+                    emailError.classList.add('show');
+                    emailGroup.classList.add('input-error');
+                    isValid = false;
+                } else {
+                    emailError.classList.remove('show');
+                    emailGroup.classList.remove('input-error');
+                }
+
+                // Phone
+                if (!validatePhone(phone.value)) {
+                    phoneError.textContent = 'Please enter a valid phone number (10 digits).';
+                    phoneError.classList.add('show');
+                    phoneGroup.classList.add('input-error');
+                    isValid = false;
+                } else {
+                    phoneError.classList.remove('show');
+                    phoneGroup.classList.remove('input-error');
+                }
+
+                // Date
+                if (!dateSelect.value) {
+                    dateError.textContent = 'Please select a date.';
+                    dateError.classList.add('show');
+                    dateGroup.classList.add('input-error');
+                    isValid = false;
+                } else {
+                    dateError.classList.remove('show');
+                    dateGroup.classList.remove('input-error');
+                }
+
+                // Message
+                if (!message.value.trim() || message.value.trim().length < 10) {
+                    messageError.textContent = 'Please enter your message (minimum 10 characters).';
+                    messageError.classList.add('show');
+                    messageGroup.classList.add('input-error');
+                    isValid = false;
+                } else {
+                    messageError.classList.remove('show');
+                    messageGroup.classList.remove('input-error');
+                }
+
+                if (isValid) {
+                    showToast('✅ Your message has been sent successfully! Redirecting...');
+                    setTimeout(function() {
+                        window.location.href = '404.html';
+                    }, 1500);
+                }
+            });
+
+            // ===== FAQ TOGGLE with BG Color =====
+            document.querySelectorAll('.faq-question').forEach(function(question) {
+                question.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const answer = document.getElementById(targetId);
+                    const icon = this.querySelector('.faq-icon i');
+                    const isOpen = answer.classList.contains('open');
+                    const parentItem = this.closest('.faq-item');
+
+                    // Close all other FAQs
+                    document.querySelectorAll('.faq-answer').forEach(function(ans) {
+                        ans.classList.remove('open');
+                    });
+                    document.querySelectorAll('.faq-question').forEach(function(q) {
+                        q.classList.remove('active');
+                    });
+                    document.querySelectorAll('.faq-item').forEach(function(item) {
+                        item.classList.remove('active-faq');
+                    });
+
+                    if (!isOpen) {
+                        answer.classList.add('open');
+                        this.classList.add('active');
+                        parentItem.classList.add('active-faq');
+                        if (icon) {
+                            icon.style.transform = 'rotate(45deg)';
+                        }
+                    } else {
+                        if (icon) {
+                            icon.style.transform = 'rotate(0deg)';
+                        }
+                    }
+                });
+            });
+
+            // ===== SUCCESS TOAST =====
+            function showToast(message) {
+                const existingToast = document.querySelector('.toast');
+                if (existingToast) {
+                    existingToast.remove();
+                }
+
+                const toast = document.createElement('div');
+                toast.className = 'toast show';
+                toast.innerHTML = '<i class="fas fa-check-circle"></i> ' + message;
+                document.body.appendChild(toast);
+
+                setTimeout(function() {
+                    toast.classList.remove('show');
+                    setTimeout(function() {
+                        toast.remove();
+                    }, 400);
+                }, 1500);
+            }
+
+            console.log('%c🏥 Specialty Care Hospital | Contact Page', 'color: #0055a4; font-size: 16px; font-weight: bold;');
+            console.log('%c📞 AOS Animations | Form Validation | FAQ Toggle | Header & Footer', 'color: #0a1a2e; font-size: 12px;');
+        });
+    </script>
+
+</body>
+</html>
